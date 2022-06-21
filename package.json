@@ -39,6 +39,8 @@
     "dev:quickapp-webview": "cross-env NODE_ENV=development UNI_PLATFORM=quickapp-webview vue-cli-service uni-build --watch",
     "dev:quickapp-webview-huawei": "cross-env NODE_ENV=development UNI_PLATFORM=quickapp-webview-huawei vue-cli-service uni-build --watch",
     "dev:quickapp-webview-union": "cross-env NODE_ENV=development UNI_PLATFORM=quickapp-webview-union vue-cli-service uni-build --watch",
+    "staging:h5": "cross-env NODE_ENV=staging UNI_PLATFORM=h5 vue-cli-service uni-serve",
+    "staging:mp-weixin": "cross-env NODE_ENV=staging UNI_PLATFORM=mp-weixin  UNI_OUTPUT_DIR=dist/staging/mp-weixin  vue-cli-service uni-build --watch",
     "info": "node node_modules/@dcloudio/vue-cli-plugin-uni/commands/info.js",
     "serve:quickapp-native": "node node_modules/@dcloudio/uni-quickapp-native/bin/serve.js",
     "test:android": "cross-env UNI_PLATFORM=app-plus UNI_OS_NAME=android jest -i",
@@ -67,9 +69,14 @@
     "@dcloudio/uni-quickapp-webview": "^2.0.1-34920220609002",
     "@dcloudio/uni-stat": "^2.0.1-34920220609002",
     "@vue/shared": "^3.0.0",
+    "axios": "^0.27.2",
     "core-js": "^3.6.5",
     "dayjs": "^1.11.3",
+    "echarts": "^5.3.2",
     "flyio": "^0.6.2",
+    "image-conversion": "^2.1.1",
+    "qrcode": "^1.5.0",
+    "qs": "^6.10.3",
     "regenerator-runtime": "^0.12.1",
     "vue": "^2.6.11",
     "vuex": "^3.2.0"
@@ -94,7 +101,9 @@
     "jest": "^25.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
+    "node-sass": "^4.14.1",
     "postcss-comment": "^2.0.0",
+    "sass": "^1.52.3",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

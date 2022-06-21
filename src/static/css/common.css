@@ -1,0 +1,432 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+blockquote,
+th,
+td,
+img,
+button,
+p,
+u,
+i,
+a {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  /*去除系统默认的样式*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* 点击高亮的颜色*/
+  font-family: PingFangSC-Medium, PingFang SC;
+}
+i{
+    font-style:normal;
+}
+
+/* 使用背景图 */
+.common_bgimg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* 背景图裁切 */
+.cover {
+  background-size: cover;
+}
+
+/* 弹性盒布局 */
+.common_flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* 超过两行显示省略号 */
+.ellipsis_1 {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: left;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.ellipsis_2 {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: left;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 超过三行显示省略号 */
+.ellipsis_3 {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: left;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* 
+    全局margin设置
+*/
+.mt5{
+    margin-top: 5px;
+}
+.mb5{
+    margin-bottom: 5px;
+}
+.ml5{
+    margin-left: 5px;
+}
+.mr5{
+    margin-right: 5px;
+}
+
+.mt10{
+    margin-top: 10px;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.ml10{
+    margin-left: 10px;
+}
+.mr10{
+    margin-right: 10px;
+}
+
+.mt15{
+    margin-top: 15px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.ml15{
+    margin-left: 15px;
+}
+.mr15{
+    margin-right: 15px;
+}
+
+
+.mt20{
+    margin-top: 20px;
+}
+.mb20{
+    margin-bottom: 20px;
+}
+.ml20{
+    margin-left: 20px;
+}
+.mr20{
+    margin-right: 20px;
+}
+
+/* 全局padding设置 */
+.pl-0{
+    padding-left: 0;
+}
+.pr-0{
+    padding-right: 0;
+}
+.pb-0{
+    padding-bottom: 0;
+}
+.pt-0{
+    padding-top: 0;
+}
+
+.pl-10{
+    padding-left: 10px;
+}
+.pr-10{
+    padding-right: 10px;
+}
+.pb-10{
+    padding-bottom: 10px;
+}
+.pt-10{
+    padding-top: 10px;
+}
+
+.pl-15{
+    padding-left: 15px;
+}
+.pr-15{
+    padding-right: 15px;
+}
+.pb-15{
+    padding-bottom: 15px;
+}
+.pt-15{
+    padding-top: 15px;
+}
+
+.pl-20{
+    padding-left: 20px;
+}
+.pr-20{
+    padding-right: 20px;
+}
+.pb-20{
+    padding-bottom: 20px;
+}
+.pt-20{
+    padding-top: 20px;
+}
+
+
+.va-m{
+    vertical-align: middle;
+}
+
+.wbba{
+    word-break: break-all
+}
+
+
+.skc-active:active:after{
+    content:'';
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 9;
+    background: rgba(35, 212, 190, 0.1);
+}
+.skc-active1:active:after{
+    content:'';
+    position: absolute;
+    left:0;
+    right:0;
+    z-index: 9;
+    top:0;
+    bottom:0;
+    background: rgba(35, 212, 190, 0.2);
+    border-radius: 50%;
+}
+
+.skc-active2:active:after{
+    content:'';
+    position: absolute;
+    left:0;
+    right:0;
+    z-index: 9;
+    top:0;
+    bottom:0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.skc-init-input{
+    border: 0;
+    box-sizing: border-box;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    color: #323233;
+    line-height: inherit;
+}
+
+.skc-required::after{
+    content:'*';
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF5050;
+    line-height: 20px;
+}
+
+.skc-loading{
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+/* 全局背景色 */
+.bg_color {
+  background-color: #DCF3F0;
+}
+
+.already {
+  background-color: #999898;
+}
+
+/* 字体颜色 */
+.font_colorfff {
+  color: #fff;
+}
+
+.font_color_main {
+  color: #FA6A40;
+}
+
+.font_colorB1 {
+  color: #B1B1B1;
+}
+
+.font_colorB2 {
+  color: #B2B2B2;
+}
+
+.font_color34 {
+  color: #343434;
+}
+
+.font_color9A {
+  color: #9A9A9A;
+}
+
+.font_colorA0 {
+  color: #A0A0A0;
+}
+
+.font_color999 {
+  color: #999;
+}
+
+.font_color888 {
+  color: #888;
+}
+
+.font_color87 {
+  color: #878787;
+}
+
+.font_color666 {
+  color: #666;
+}
+
+.font_color333 {
+  color: #333;
+}
+
+.font_color000 {
+  color: #000;
+}
+.font_color98{
+  color:#989898;
+}
+
+/* 字体大小 */
+.fontSize_10 {
+  font-size: 10px;
+}
+
+.fontSize_11 {
+  font-size: 11px;
+}
+
+.fontSize_12 {
+  font-size: 12px;
+}
+
+.fontSize_13 {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.fontSize_14 {
+  font-size: 14px;
+}
+
+.fontSize_15 {
+  font-size: 15px;
+}
+
+.fontSize_16 {
+  font-size: 16px;
+}
+
+.fontSize_17 {
+  font-size: 17px;
+}
+
+.fontSize_18 {
+  font-size: 18px;
+}
+
+.fontSize_20 {
+  font-size: 20px;
+}
+
+.fontSize_22 {
+    font-size: 22px;
+}
+
+.fontSize_24 {
+    font-size: 24px;
+}
+
+.fontSize_40 {
+    font-size: 40px;
+}
+
+
+/* 字体加粗 */
+.fontWeight {
+  font-weight: bold;
+}
+
+/* 按钮 */
+.common_btn {
+  width: 260px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+}
+
+/* vant公共样式 */
+.van-nav-bar {
+  background-color: #fff;
+}
+
+.van-nav-bar .van-icon {
+  color:#989898;
+  font-size: 20px;
+}
+
+.van-nav-bar__title {
+  color: #666f;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.van-nav-bar__text {
+  color: #666;
+}

@@ -101,12 +101,22 @@
 					type: 'image',
 					url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
 				}],
+                bannerList:[]
 
 			}
 		},
 		onLoad() {
 
 		},
+        created(){
+            // 调用接口 demo
+            this.$http.get(this.$api.bannerList, {}).then((res) => {
+                console.log(res)
+                if (res.code === 200) {
+                    this.bannerList = res.data;
+                }
+            });
+        },
 		methods: {
 			DateChange(e) {
 				this.date = e.detail.value
