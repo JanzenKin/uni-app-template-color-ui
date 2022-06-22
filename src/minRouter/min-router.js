@@ -99,7 +99,7 @@ class MinRouter {
 function parseURL () {
   const query = this.$root.$mp.query.params
   if (query) {
-    return JSON.parse(query)
+    return JSON.parse(decodeURIComponent(query))
   } else {
     return {}
   }

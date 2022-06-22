@@ -22,8 +22,12 @@ else if(process.env.NODE_ENV === 'staging'){
  // 开发环境
 else if (process.env.NODE_ENV === 'development') {
     console.log("开发环境----")
-    axios.defaults.baseURL = process.env.VUE_APP_BASE_API;//开发环境下使用代理：vue.config.js中配置
-    
+	// #ifdef H5
+    axios.defaults.baseURL = process.env.VUE_APP_BASE_API;
+    // #endif
+	// #ifndef H5
+	axios.defaults.baseURL = 'http://192.168.1.91:8080';
+	// #endif
 }
 
 // 以下免登接口配置
@@ -68,9 +72,12 @@ axios.interceptors.request.use(config => {
         if (!config.data) return config;  
 
         if (config.data.isUpload)  
-            config.headers['Content-Type'] = 'multipart/form-data';  
-        else  
-            config.data = qs.stringify(config.data); //如果是非上传类型 则 将数据重新组装  
+            config.headers['Content-Type'] = 'multipart/form-data'; 
+        else{
+            config.headers['Content-type'] = 'application/json';
+        }
+        // else  
+        //     config.data = qs.stringify(config.data); //如果是非上传类型 则 将数据重新组装  
 
         return config;  
     },  
