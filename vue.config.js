@@ -1,5 +1,7 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin') //最新版本copy-webpack-plugin插件暂不兼容，推荐v5.0.0
+const TransformPages = require('uni-read-pages')
+const {webpack} = new TransformPages()
 
 module.exports = {
 	configureWebpack: {
@@ -9,7 +11,15 @@ module.exports = {
 					from: path.join(__dirname, 'src/assets'),
 					to: path.join(__dirname, 'dist', process.env.NODE_ENV === 'production' ? 'build' : 'dev', process.env.UNI_PLATFORM, 'static')
 				}
-			])
+			]),
+            new webpack.DefinePlugin({
+				ROUTES: webpack.DefinePlugin.runtimeValue(() => {
+					const tfPages = new TransformPages({
+						includes: ['path', 'name', 'aliasPath']
+					});
+					return JSON.stringify(tfPages.routes)
+				}, true )
+			})
 		],
 	},
     /* node服务运行起来才能代理，只有h5能代理，小程序都是编译后的文件 */

@@ -6,10 +6,11 @@ import api from "./server/api";
 import { compress, compressAccurately } from "image-conversion";
 import QRCode from "qrcode";
 import * as echarts from "echarts";
-import MinRouter from './minRouter/min-router'
-import minRouter from './minRouter/router'
+
+import {router,RouterMount} from './router/index'  //路径换成自己的
+Vue.use(router)
+
 import "@/static/css/common.css";
-Vue.use(MinRouter)
 
 Vue.config.productionTip = false
 
@@ -24,23 +25,37 @@ if (process.env.NODE_ENV === 'production') {
     Vue.prototype.imgUrl = 'http://192.168.1.90/oss/' // 图片地址 或 视频地址
     Vue.prototype.uploadImage = ''// 图片上传域名
     Vue.prototype.h5Url = "http://192.168.1.55:8888/#";
+    Vue.prototype.mapKey = 'e3b7fe41b1624f1f4d2dbc69da3117f2'; // 高德key
+    Vue.prototype.localImgPath = ''; // 本地图片路径
 }
 // 体验环境
 else if (process.env.NODE_ENV === 'staging') {
     Vue.prototype.imgUrl = '//oss.iktapp.com/' // 图片地址 或 视频地址
     Vue.prototype.uploadImage = ''// 图片上传域名
     Vue.prototype.h5Url = "https://skc-test.iktapp.com/#";
+    Vue.prototype.mapKey = 'e3b7fe41b1624f1f4d2dbc69da3117f2'; // 高德key
+    Vue.prototype.localImgPath = ''; // 本地图片路径
 }
 // 开发环境
 else if (process.env.NODE_ENV === 'development') {
     Vue.prototype.imgUrl = 'http://192.168.1.90/oss/' // 图片地址 或 视频地址
     Vue.prototype.uploadImage = ''// 图片上传域名
     Vue.prototype.h5Url = "http://192.168.1.55:8888/#";
+    Vue.prototype.mapKey = 'e3b7fe41b1624f1f4d2dbc69da3117f2'; // 高德key
+    Vue.prototype.localImgPath = 'http://192.168.1.90/oss/front/saas'; // 本地图片路径
+
 }
 
 
 // 混入方法
 Vue.mixin({
+    data(){
+        return {
+            /* 注入每一个vue实例 */
+            imgUrl: this.imgUrl,
+            localImgPath: this.localImgPath
+        }
+    },
     methods: {
         //#ifdef H5
         //判断是否在微信中
@@ -122,7 +137,9 @@ Vue.mixin({
             }
         },
         //#endif
-
+        isExist(val){
+            return val !== null && val!==undefined && val!==""
+        },
         mixinBeforeUpload(file) {
             console.log(file, "file");
             return new Promise((resolve, reject) => {
@@ -146,6 +163,12 @@ App.mpType = 'app'
 
 const app = new Vue({
     ...App,
-    minRouter
 })
-app.$mount()
+
+// #ifdef H5
+RouterMount(app,router,'#app')
+// #endif
+
+// #ifndef H5
+	app.$mount(); //为了兼容小程序及app端必须这样写才有效果
+// #endif
