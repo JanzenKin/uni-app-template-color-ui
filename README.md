@@ -36,3 +36,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
       > 监听页面卸载
     - beforeDestroy
     - destroyed
+
+
+## 图片功能类别：
+   - mod_：是否公共，可选
+   - icon：模块类固化的图标
+   - logo：LOGO类
+   - spr：单页面各种元素合并集合
+   - btn：按钮
+   - bg：可平铺或者大背景
+   - pic: 装饰图片
