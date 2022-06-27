@@ -1,11 +1,14 @@
-import Vue from 'vue'
 import App from './App'
-import dayjs from 'dayjs'
 import axios from "./config/axios";
 import api from "./server/api";
 import { compress, compressAccurately } from "image-conversion";
 import QRCode from "qrcode";
+import Vue from 'vue'
+
+// #ifndef H5
+import dayjs from 'dayjs'
 import * as echarts from "echarts";
+// #endif
 
 import {router,RouterMount} from './router/index'  //路径换成自己的
 Vue.use(router)

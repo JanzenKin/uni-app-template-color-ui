@@ -50,6 +50,13 @@
 			}
 		}
 	},
+    "h5": {
+        "optimization": {
+            "treeShaking": {
+                "enable": true
+            }
+        }
+    },
 	"quickapp": { /* 快应用特有相关 */
 
 	},
@@ -63,7 +70,10 @@
             "scope.userLocation": {
               "desc": "你的位置信息将用于小程序位置接口的效果展示"
             }
-          }
+        },
+        "optimization": {              
+            "subPackages": true  //可选，JSON对象，分包配置
+        }
 	},
 	"mp-alipay" : {
         "usingComponents" : true

@@ -12,6 +12,13 @@
             document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')
         </script>
         <link rel="stylesheet" href="<%= BASE_URL %>static/index.<%= VUE_APP_INDEX_CSS_HASH %>.css" />
+
+    <!-- cdn引入 -->
+    <!--  #ifdef H5 -->
+    <!-- <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script> cdn引入vue路由出bug -->
+    <script src="https://unpkg.com/dayjs@1.11.3/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <!-- #endif -->
     </head>
 
     <body>
@@ -19,7 +26,5 @@
             <strong>Please enable JavaScript to continue.</strong>
         </noscript>
         <div id="app"></div>
-        <!-- built files will be auto injected -->
     </body>
-
 </html>

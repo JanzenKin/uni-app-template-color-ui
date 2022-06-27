@@ -21,6 +21,10 @@ module.exports = {
 				}, true )
 			})
 		],
+        externals: {
+            'dayjs': 'dayjs',
+            'echarts': 'echarts'
+         }
 	},
     /* node服务运行起来才能代理，只有h5能代理，小程序都是编译后的文件 */
     devServer: {
